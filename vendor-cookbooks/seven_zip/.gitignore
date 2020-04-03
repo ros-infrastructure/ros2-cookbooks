@@ -1,0 +1,26 @@
+*#
+*.un~
+*~
+.#*
+.*.sw[a-z]
+.vagrant
+/cache/
+/cookbooks
+\#*#
+version.txt
+
+# Bundler
+bin/*
+.bundle/*
+.vendor/*
+
+# Test Kitchen
+.kitchen.local.yml
+.kitchen/
+.kitchen/*
+Berksfile.lock
+
+#IntelliJ IDEA
+.idea
+.idea/
+.idea/*

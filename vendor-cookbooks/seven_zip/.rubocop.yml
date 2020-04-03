@@ -1,0 +1,16 @@
+AllCops:
+  Exclude:
+    - 'Berksfile'
+
+Style/Encoding:
+  Enabled: true
+
+# Multiline block chains are needed for ChefSpec stubbing of libraries
+Style/MultilineBlockChain:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/AbcSize:
+  Max: 25
