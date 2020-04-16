@@ -1,0 +1,20 @@
+{
+  "name": "ros2-development",
+  "description": "Install necessary dependencies and set up a machine for ROS 2 development",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+    "ros2_windows": {
+      "development": "true",
+      "download_sources": "true",
+      "vs_version": "buildtools",
+      "source": {
+        "ros2.repos": "master"
+      },
+      "ros2_ws": "C:/dev/ros2_ws",
+      "install_connext": "false",
+      "install_opensplice": "true"
+    }
+  },
+  "chef_type": "role",
+  "run_list": [ "recipe[ros2_windows::ros2]" ]
+}
