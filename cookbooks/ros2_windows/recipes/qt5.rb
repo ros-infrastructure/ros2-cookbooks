@@ -1,5 +1,5 @@
 directory 'AppData_Qt' do
-path File.join(Dir.home(), "AppData\\Roaming\\Qt")
+  path File.join(Dir.home(), "AppData\\Roaming\\Qt")
 end
 
 # Installing Qt5 requires an account. This file contains a username and secret account token
@@ -7,6 +7,9 @@ cookbook_file 'qtaccount.ini' do
   path File.join(Dir.home(), "AppData\\Roaming\\Qt\\qtaccount.ini")
   source 'qtaccount.ini'
   action :create_if_missing
+
+  # If the deploying user did not add this file to `files` continue anyway.
+  ignore_failure true
 end
 
 cookbook_file 'qt-installer.qs' do
@@ -18,7 +21,8 @@ cookbook_file 'qt-maintenance.qs' do
 end
 
 # Install Qt5 with automated install script, no msvc2019 version exists but 2017 is compatible
-# Updater/silentUpdate options did not work for me. Install scripts finds and installs the most recent LTS version
+# Updater/silentUpdate options did not work for me.
+# Install scripts finds and installs the most recent LTS version
 error_filename = File.join(Dir.home(), "qt_install.err")
 
 windows_package 'Qt Maintenance' do
