@@ -20,3 +20,4 @@ chef_version '>= 12.1' if respond_to?(:chef_version)
 # source_url 'https://github.com/osrf/chef-osrf'
 depends 'chocolatey'
 depends 'seven_zip'
+depend 'windows'

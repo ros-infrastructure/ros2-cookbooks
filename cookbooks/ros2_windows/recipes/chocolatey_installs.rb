@@ -17,6 +17,11 @@ remote_file 'asio.nupkg' do
   action :create
 end
 
+remote_file 'bullet.nupkg' do
+  source 'https://github.com/ros2/choco-packages/releases/download/2020-02-24/bullet.2.89.0.nupkg'
+  action :create
+end
+
 remote_file 'cunit.nupkg' do
   source 'https://github.com/ros2/choco-packages/releases/download/2019-10-24/cunit.2.1.3.nupkg'
   action :create
@@ -43,6 +48,6 @@ remote_file 'tinyxml2.nupkg' do
 end
 
 chocolatey_package 'custom_packages' do
-  package_name ['asio', 'cunit', 'eigen', 'tinyxml-usestl', 'tinyxml2', 'log4cxx']
+  package_name ['asio', 'bullet', 'cunit', 'eigen', 'tinyxml-usestl', 'tinyxml2', 'log4cxx']
   source '.\\'
 end

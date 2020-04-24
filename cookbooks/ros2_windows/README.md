@@ -28,6 +28,12 @@ This will open a GUI to input your github credentials
 > git clone https://github.com/ros-infrastructure/ros2-cookbooks
 ```
 
+Run `berks` to get the cookbook dependencies
+```
+cd ros2-cookbooks/coobooks/ros2_windows
+berks vendor ..
+```
+
 Run chef-solo to configure machine.
 ```
 > c:\cinc-project\cinc\bin\cinc-solo -c ros2-cookbooks\.chef\solo.rb -j ros2_windows.json
