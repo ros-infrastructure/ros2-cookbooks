@@ -21,9 +21,7 @@ In same shell, install chocolatey and git
 > restart-computer
 ```
 
-After the computer restarts, in the cmd shell (not powershell) run the following:
-
-This will open a GUI to input your github credentials
+After the computer restarts, in the cmd shell (not powershell) clone this repo:
 ```
 > git clone https://github.com/ros-infrastructure/ros2-cookbooks
 ```

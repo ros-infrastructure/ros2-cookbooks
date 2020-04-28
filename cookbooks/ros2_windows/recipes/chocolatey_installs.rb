@@ -11,43 +11,23 @@ windows_env 'PATH' do
   action :modify
 end
 
-# Custom choco packages
-remote_file 'asio.nupkg' do
-  source 'https://github.com/ros2/choco-packages/releases/download/2019-10-24/asio.1.12.1.nupkg'
-  action :create
-end
+custom_chocolatey_packages = %w[
+  asio.1.12.1
+  bullet.2.89.0
+  cunit.2.1.3
+  eigen.3.3.4
+  log4cxx.0.10.0
+  tinyxml-usestl.2.6.2
+  tinyxml2.6.0.0
+]
 
-remote_file 'bullet.nupkg' do
-  source 'https://github.com/ros2/choco-packages/releases/download/2020-02-24/bullet.2.89.0.nupkg'
-  action :create
-end
-
-remote_file 'cunit.nupkg' do
-  source 'https://github.com/ros2/choco-packages/releases/download/2019-10-24/cunit.2.1.3.nupkg'
-  action :create
-end
-
-remote_file 'eigen.nupkg' do
-  source 'https://github.com/ros2/choco-packages/releases/download/2019-10-24/eigen.3.3.4.nupkg'
-  action :create
-end
-
-remote_file 'log4cxx.nupkg' do
-  source 'https://github.com/ros2/choco-packages/releases/download/2019-10-24/log4cxx.0.10.0.nupkg'
-  action :create
-end
-
-remote_file 'tinyxml-usestl.nupkg' do
-  source 'https://github.com/ros2/choco-packages/releases/download/2019-10-24/tinyxml-usestl.2.6.2.nupkg'
-  action :create
-end
-
-remote_file 'tinyxml2.nupkg' do
-  source 'https://github.com/ros2/choco-packages/releases/download/2019-10-24/tinyxml2.6.0.0.nupkg'
-  action :create
+custom_chocolatey_packages.each do |pkg|
+  remote_file "#{pkg}.nupkg" do
+    source "https://github.com/ros2/choco-packages/releases/download/2020-02-24/#{pkg}.nupkg"
+  end
 end
 
 chocolatey_package 'custom_packages' do
-  package_name ['asio', 'bullet', 'cunit', 'eigen', 'tinyxml-usestl', 'tinyxml2', 'log4cxx']
+  package_name *custom_chocolatey_packages.map{|pkg| pkg.split('.').first}
   source '.\\'
 end

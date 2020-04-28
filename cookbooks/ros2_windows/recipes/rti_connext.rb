@@ -2,12 +2,10 @@ connext_params = node['ros2_windows']['rti_connext']
 
 # These will fail if the rti_connext parameters have not been specified because the defaults are 'nil'
 assert(File.exists?(connext_params['license_file']),
-                   sprintf('License file location does not exist: %s',
-                           connext_params['license_file']))
+                    "License file location does not exist: #{connext_params['license_file']}")
 
 assert(Dir.exists?(connext_params['installer_dir']),
-                   sprintf('Installer directory does not exist: %s',
-                           connext_params['installer_dir']))
+                   "Installer directory does not exist: #{connext_params['installer_dir']}")                          ))
 assert_not_nil(connext_params['version'], "Version is nil, requires MAJOR.MINOR.PATCH (e.g. '5.3.1')")
 assert_not_nil(connext_params['edition'], "Edition is nil, requires one of ('evaluation', 'pro')")
 
@@ -15,57 +13,47 @@ assert_not_nil(connext_params['min_vs_version'], "Minimum Visual Studio version 
 
 assert_not_nil(connext_params['openssl_version'], "OpenSSL version is required (e.g. '1.0.2n')")
 
-host_installer_filename = sprintf('rti_connext_dds-%s-%s-host-%s.exe',
-                                  connext_params['version'],
-                                  connext_params['edition'],
-                                  connext_params['target_platform'])
+host_installer_filename = "rti_connext_dds-#{connext_params['version']}-#{connext_params['edition']}-host-#{connext_params['target_platform']}.exe")
 host_installer_path = File.join(connext_params['installer_dir'], host_installer_filename)
 
 target_platform_vs_version = connext_params['target_platform'] + 'VS' + connext_params['min_vs_version']
 
 openssl_installer_path = File.join(connext_params['installer_dir'],
-                                   sprintf('openssl-%s-target-%s.zip',
-                                           connext_params['openssl_version'],
-                                           target_platform_vs_version))
+                                   "openssl-#{connext_params['openssl_version']}-target-#{target_platform_vs_version}.zip")
 
-target_installer_filename = sprintf('rti_connext_dds-%s-%s-target-%s.rtipkg',
-                                    connext_params['version'],
-                                    connext_params['edition'],
-                                    target_platform_vs_version)
+target_installer_filename = "rti_connext_dds-#{connext_params['version']}-#{connext_params['edition']}-target-#{target_platform_vs_version}.rtipkg"
 target_installer_path = File.join(connext_params['installer_dir'],
                                   target_installer_filename)
 
 rtipkginstall_bat = File.join('%ProgramFiles%',
-                              sprintf('rti_connext_dds-%s', connext_params['version']),
+                              "rti_connext_dds-#{connext_params['version']}",
                               'bin',
                               'rtipkginstall.bat')
 
-security_plugins_host_filename = sprintf('rti_security_plugins-%s-host-%s.rtipkg',
-                                         connext_params['version'],
-                                         connext_params['target_platform'])
+security_plugins_host_filename = "rti_security_plugins-#{connext_params['version']}-host-#{connext_params['target_platform']}.rtipkg")
 security_plugins_host_path = File.join(connext_params['installer_dir'], security_plugins_host_filename)
 
-security_plugins_target_filename = sprintf('rti_security_plugins-%s-target-%s.rtipkg',
-                                           connext_params['version'],
-                                           target_platform_vs_version)
+security_plugins_target_filename = "rti_security_plugins-#{connext_params['version']}-target-#{target_platform_vs_version}.rtipkg")
 
 security_plugins_target_path = File.join(connext_params['installer_dir'], security_plugins_target_filename)
 
 rti_openssl_base_dir = File.join('C:\\connext',
-                                 sprintf('openssl-%s', connext_params['openssl_version']),
+                                 "openssl-#{connext_params['openssl_version']}",
                                  target_platform_vs_version,
                                  'release')
 
-print "--------------------------RTI Connext Install params--------------------------"
-print 'License file: ' + connext_params['license_file']
-print 'Host installer: ' + host_installer_path
-print 'Target installer: ' + target_installer_path
-print 'Openssl installer: ' + openssl_installer_path
-print 'Host security plugins installer: ' + security_plugins_host_path
-print 'Target security plugins installer: ' + security_plugins_target_path
-print 'Installed openssl dir: ' + rti_openssl_base_dir
-print 'rtipkg batch script: ' + rtipkginstall_bat
-print "------------------------------------------------------------------------------"
+log 'connext_install_message' do
+  message 'Using the following paths for RTI Connext install: ' +
+           'License file: ' + connext_params['license_file'] +
+           ', Host installer: ' + host_installer_path +
+           ', Target installer: ' + target_installer_path +
+           ', Openssl installer: ' + openssl_installer_path +
+           ', Host security plugins installer: ' + security_plugins_host_path +
+           ', Target security plugins installer: ' + security_plugins_target_path +
+           ', Installed openssl dir: ' + rti_openssl_base_dir +
+           ', rtipkg batch script: ' + rtipkginstall_bat
+  level :info
+end
 
 directory "C:\\connext" do
   path "C:\\connext"
@@ -73,11 +61,11 @@ directory "C:\\connext" do
 end
 
 execute 'copy_license_file' do
-  command sprintf('copy %s C:\\connext\\', connext_params['license_file'])
+  command "copy #{connext_params['license_file']} C:\\connext\\"
 end
 
 execute 'copy_connextdds_host' do
-  command sprintf('copy /b %s.??? %s', host_installer_path, host_installer_path)
+  command "copy /b #{host_installer_path}.??? #{host_installer_path}"
 end
 
 seven_zip_archive 'openssl_zip' do
@@ -87,7 +75,7 @@ seven_zip_archive 'openssl_zip' do
 end
 
 execute 'copy_connextdds_target' do
-  command sprintf('copy /b %s.??? %s', target_installer_filename, target_installer_filename)
+  command "copy /b #{target_installer_filename}.??? #{target_installer_filename}"
 end
 
 windows_env 'RTI_LICENSE_FILE' do

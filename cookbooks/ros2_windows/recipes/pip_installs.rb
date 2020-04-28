@@ -1,39 +1,39 @@
-required_pip_packages = [
-  'pydot',
-  'PyQt5',
-  'vcstool',
-  'colcon-common-extensions',
-  'catkin_pkg',
-  'cryptography',
-  'EmPy',
-  'ifcfg',
-  'lark-parser',
-  'lxml',
-  'netifaces',
-  'numpy',
-  'opencv-python',
-  'pyparsing',
-  'pyyaml',
-  'pytest',
-  'pytest-mock',
-  'coverage',
-  'mock'
-]
+required_pip_packages = %w(
+  pydot
+  PyQt5
+  vcstool
+  colcon-common-extensions
+  catkin_pkg
+  cryptography
+  EmPy
+  ifcfg
+  lark-parser
+  lxml
+  netifaces
+  numpy
+  opencv-python
+  pyparsing
+  pyyaml
+  pytest
+  pytest-mock
+  coverage
+  mock
+)
 
-development_pip_packages = [
-  'flake8',
-  'flake8-blind-except',
-  'flake8-builtins',
-  'flake8-class-newline',
-  'flake8-comprehensions',
-  'flake8-deprecated',
-  'flake8-docstrings',
-  'flake8-import-order',
-  'flake8-quotes',
-  'mypy',
-  'pep8',
-  'pydocstyle'
-]
+development_pip_packages = %w(
+  flake8
+  flake8-blind-except
+  flake8-builtins
+  flake8-class-newline
+  flake8-comprehensions
+  flake8-deprecated
+  flake8-docstrings
+  flake8-import-order
+  flake8-quotes
+  mypy
+  pep8
+  pydocstyle
+)
 
 # Use explicit location because python may not be on the PATH if chef-solo has not been run before
 execute 'pip_update' do
