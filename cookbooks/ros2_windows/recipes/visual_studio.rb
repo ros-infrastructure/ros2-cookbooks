@@ -2,12 +2,12 @@
 # https://docs.microsoft.com/en-us/visualstudio/install/use-command-line-parameters-to-install-visual-studio?view=vs-2019
 
 # If BuildTools is not already installed, install it
-packages_to_install =  %w(
+packages_to_install =  %w[
   Microsoft.Net.Component.4.8.SDK
   Microsoft.VisualStudio.Workload.VCTools
   Microsoft.Component.MSBuild
   Microsoft.VisualStudio.Component.VC.CLI.Support
-)
+]
 
 if node['ros2_windows']['vs_version'] != 'buildtools' then
   packages_to_install += ['Microsoft.VisualStudio.Workload.NativeDesktop',]
