@@ -28,7 +28,7 @@ error_filename = File.join(Dir.home(), "qt_install.err")
 windows_package 'Qt Maintenance' do
   source 'c:\\Qt\\MaintenanceTool.exe'
   installer_type :custom
-  returns [0, 1, 3]
+  returns [0]
   options '--script qt-maintenance.qs MsvcVersion=2019 ErrorLogname="' + error_filename + '"'
   timeout 2000
   only_if {::File.exist?('c:\\Qt\\MaintenanceTool.exe')}
@@ -37,7 +37,7 @@ end
 windows_package 'Qt Install' do
   source 'http://download.qt.io/official_releases/online_installers/qt-unified-windows-x86-online.exe'
   installer_type :custom
-  returns [0, 1]
+  returns [0]
   options '--script qt-installer.qs MsvcVersion=2019 ErrorLogname="' + error_filename + '"'
   timeout 2000
   not_if {::File.exist?('c:\\Qt\\MaintenanceTool.exe')}

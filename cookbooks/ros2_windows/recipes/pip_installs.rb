@@ -1,4 +1,4 @@
-required_pip_packages = %w(
+required_pip_packages = %w[
   pydot
   PyQt5
   vcstool
@@ -18,9 +18,9 @@ required_pip_packages = %w(
   pytest-mock
   coverage
   mock
-)
+]
 
-development_pip_packages = %w(
+development_pip_packages = %w[
   flake8
   flake8-blind-except
   flake8-builtins
@@ -33,7 +33,7 @@ development_pip_packages = %w(
   mypy
   pep8
   pydocstyle
-)
+]
 
 # Use explicit location because python may not be on the PATH if chef-solo has not been run before
 execute 'pip_update' do
