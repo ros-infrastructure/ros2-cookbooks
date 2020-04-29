@@ -1,7 +1,5 @@
-chocolatey_package 'choco_packages' do
-  package_name ['git', 'cmake', 'curl', 'vcredist2013', 'vcredist140', 'cppcheck', 'patch']
-  # Installs if not installed, otherwise it will upgrade
-  action :upgrade
+execute 'cppcheck' do
+  command 'choco install -y git cmake curl vcredist2013 vcredist140 patch cppcheck'
 end
 
 windows_env 'PATH' do
