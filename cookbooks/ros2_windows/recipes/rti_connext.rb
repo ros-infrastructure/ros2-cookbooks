@@ -1,17 +1,35 @@
 connext_params = node['ros2_windows']['rti_connext']
 
 # These will fail if the rti_connext parameters have not been specified because the defaults are 'nil'
-assert(File.exists?(connext_params['license_file']),
-                    "License file location does not exist: #{connext_params['license_file']}")
+unless File.exists?(connext_params['license_file']) do
+  Chef::Log.fatal("License file location does not exist: #{connext_params['license_file']}")
+  raise
+end
 
-assert(Dir.exists?(connext_params['installer_dir']),
-                   "Installer directory does not exist: #{connext_params['installer_dir']}")                          ))
-assert_not_nil(connext_params['version'], "Version is nil, requires MAJOR.MINOR.PATCH (e.g. '5.3.1')")
-assert_not_nil(connext_params['edition'], "Edition is nil, requires one of ('evaluation', 'pro')")
+unless Dir.exists?(connext_params['installer_dir']) do
+  Chef::Log.fatal("Installer directory does not exist: #{connext_params['installer_dir']}")
+  raise
+end
 
-assert_not_nil(connext_params['min_vs_version'], "Minimum Visual Studio version is required (e.g. '2017')")
+if connext_params['version'] == nil do
+  Chef::Log.fatal("Version is nil, requires MAJOR.MINOR.PATCH (e.g. '5.3.1')")
+  raise
+end
 
-assert_not_nil(connext_params['openssl_version'], "OpenSSL version is required (e.g. '1.0.2n')")
+if connext_params['edition'] == nil do
+  Chef::Log.fatal("Edition is nil, requires one of ('evaluation', 'pro')")
+  raise
+end
+
+if connext_params['min_vs_version'] == nil do
+  Chef::Log.fatal("Minimum Visual Studio version is required (e.g. '2017')")
+  raise
+end
+
+if connext_params['openssl_version'] == nil do
+  Chef::Log.fatal("OpenSSL version is required (e.g. '1.0.2n')")
+  raise
+end
 
 host_installer_filename = "rti_connext_dds-#{connext_params['version']}-#{connext_params['edition']}-host-#{connext_params['target_platform']}.exe")
 host_installer_path = File.join(connext_params['installer_dir'], host_installer_filename)
