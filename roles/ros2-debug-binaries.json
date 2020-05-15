@@ -1,0 +1,14 @@
+{
+  "name": "ros2-binaries",
+  "description": "Install necessary ROS 2 dependencies and ROS 2 debug binaries",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+    "ros2_windows": {
+      "build_type": "debug",
+    }
+  },
+  "chef_type": "role",
+  "run_list": [
+    "role[ros2-binaries]"
+  ],
+}
