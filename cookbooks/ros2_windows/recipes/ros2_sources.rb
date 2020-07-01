@@ -18,5 +18,7 @@ remote_file 'ros2.repos' do
 end
 
 execute 'vcs_import' do
-  command "C:\\Python37\\Scripts\\vcs.exe import --input #{ros2_repos_path} #{ros2_src_dir}"
+  command lazy {
+    "#{node.run_state[:python_dir]}\\Scripts\\vcs.exe import --input #{ros2_repos_path} #{ros2_src_dir}"
+  }
 end
