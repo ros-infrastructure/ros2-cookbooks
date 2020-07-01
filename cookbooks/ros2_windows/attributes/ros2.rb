@@ -1,3 +1,5 @@
+default['ros2_windows']['ros_distro'] = 'rolling'
+
 # github.com/ros2/ros2 branch version, "master", "dashing", "dashing-release", etc.
 # Only used if downloading sources
 default['ros2_windows']['source']['ros2.repos'] = 'master'
@@ -6,7 +8,7 @@ default['ros2_windows']['source']['ros2.repos'] = 'master'
 default['ros2_windows']['ros2_ws'] = 'C:\\dev\\ros2_ws'
 
 # ROS 2 binary versions, dashing/eloquent/foxy etc
-default['ros2_windows']['release_version'] = 'eloquent'
+default['ros2_windows']['release_version'] = 'foxy'
 
 # Binary build version, 'release' or 'debug'
 default['ros2_windows']['build_type'] = 'release'
