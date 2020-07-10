@@ -7,9 +7,9 @@ openssl_versions = {
 
 openssl_version = openssl_versions[node["ros2_windows"]["ros_distro"]]
 openssl_conf_dir = if openssl_version == "1_1_1g"
-                     'C:\Program Files\\OpenSSL-Win64'
+                     'C:\\Program Files\\OpenSSL-Win64'
                    else
-                     'C:\OpenSSL-Win64'
+                     'C:\\OpenSSL-Win64'
                    end
 
 
