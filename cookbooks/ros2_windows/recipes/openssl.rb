@@ -6,10 +6,16 @@ openssl_versions = {
 }.freeze
 
 openssl_version = openssl_versions[node["ros2_windows"]["ros_distro"]]
-openssl_conf_dir = if openssl_version == "1_1_1g"
-                     'C:\\Program Files\\OpenSSL-Win64'
-                   else
+
+# The default installation location changed for the 1.1.1 releases. However if
+# 1.0.2 was installed previously then some state persists and a 1.1.1
+# installation will use the 1.0.2 location. To be correct in every situation
+# we would either need to specifiy the installation path for whatever we
+# install or retrieve whatever it is before configuring.
+openssl_conf_dir = if openssl_version == "1_0_2u"
                      'C:\\OpenSSL-Win64'
+                   else
+                     'C:\\Program Files\\OpenSSL-Win64'
                    end
 
 
