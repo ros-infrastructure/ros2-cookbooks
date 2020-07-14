@@ -36,16 +36,23 @@ development_pip_packages = %w[
 ]
 
 # Use explicit location because python may not be on the PATH if chef-solo has not been run before
+#
 execute 'pip_update' do
-  command 'C:\Python37\python.exe -m pip install -U pip setuptools'
+  command lazy {
+    "#{node.run_state[:python_dir]}\\python.exe -m pip install -U pip setuptools"
+  }
 end
 
 execute 'pip_required' do
-  command 'C:\Python37\python.exe -m pip install -U ' + required_pip_packages.join(' ')
+  command lazy {
+    "#{node.run_state[:python_dir]}\\python.exe -m pip install -U #{required_pip_packages.join(' ')}"
+  }
 end
 
 if node['ros2_windows']['development'] == true
   execute 'pip_additional' do
-    command 'C:\Python37\python.exe -m pip install -U ' + development_pip_packages.join(' ')
+    command lazy {
+      "#{node.run_state[:python_dir]}\\python.exe -m pip install -U #{development_pip_packages.join(' ')}"
+    }
   end
 end
