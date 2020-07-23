@@ -28,7 +28,7 @@ After the computer restarts, in the cmd shell (not powershell) clone this repo:
 
 Run `berks` to get the cookbook dependencies
 ```
-cd ros2-cookbooks/coobooks/ros2_windows
+cd ros2-cookbooks/cookbooks/ros2_windows
 berks vendor ..
 ```
 
