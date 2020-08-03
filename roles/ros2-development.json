@@ -16,5 +16,8 @@
     }
   },
   "chef_type": "role",
-  "run_list": [ "recipe[ros2_windows::ros2]" ]
+  "run_list": [ 
+    "recipe[ros2_windows::ros2]", 
+    "recipe[ros2_windows::ros2_sources]" 
+  ]
 }
