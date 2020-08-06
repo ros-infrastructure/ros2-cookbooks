@@ -1,23 +1,27 @@
 # ROS 2 Windows Cookbook
 
 This cookbook configures a host machine for ROS 2 development or binary installation.
+This README describes how to install all the prerequisites and how to run chef-solo with this cookbook.
+Due to license encumberances on the Chef binaries, this README recommends installing Cinc for their binary distributions of the Chef software.
 
 ## Windows Install
 
 This walkthrough will install the following:
-* chef/chef-solo
+* chef/chef-solo with the cinc distribution
 * chocolatey
 * git
+* chefdk
+* ros2_windows cookbook
 
-In powershell, install chef:
+In powershell, install Cinc's chef distribution:
 ```
 > . { iwr -useb https://omnitruck.cinc.sh/install.ps1 } | iex; install
 ```
 
-In same shell, install chocolatey and git
+In same shell, install chocolatey, git and the chefdk tools (primarily for `berks`).
 ```
 > Set-ExecutionPolicy Bypass -Scope Process -Force;. { iwr -useb https://chocolatey.org/install.ps1 } | iex
-> choco install -y git
+> choco install -y git chefdk
 > restart-computer
 ```
 
@@ -70,7 +74,10 @@ Adjust the `rti_connext` parameters to match your installation files.
       }
     }
   },
-  "run_list": ["role[ros2-development]"]
+  "run_list": [
+    "role[ros2-development]",
+    "recipe[ros2_windows::ros2_sources]"
+  ]
 }
 ```
 
