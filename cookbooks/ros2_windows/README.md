@@ -17,7 +17,7 @@ In powershell, install chef:
 In same shell, install chocolatey and git
 ```
 > Set-ExecutionPolicy Bypass -Scope Process -Force;. { iwr -useb https://chocolatey.org/install.ps1 } | iex
-> choco install -y git
+> choco install -y git chefdk
 > restart-computer
 ```
 
