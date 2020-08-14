@@ -43,7 +43,8 @@ windows_package 'Qt Install' do
   # Instead error information is written to the ErrorLogname below
   returns [0, 1, 3]
   options '--script qt-installer.qs MsvcVersion=2019 ErrorLogname="' + error_filename + '"'
-  timeout 3600
+  # Temporary two hour timeout to find a baseline time.
+  timeout 3600 * 2
   not_if {::File.exist?('c:\\Qt\\MaintenanceTool.exe')}
 end
 
