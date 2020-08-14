@@ -10,6 +10,9 @@ cookbook_file 'qtaccount.ini' do
 
   # If the deploying user did not add this file to `files` continue anyway.
   ignore_failure true
+
+  # Suppress diff output so we can use this in public builds.
+  sensitive true
 end
 
 cookbook_file 'qt-installer.qs' do
