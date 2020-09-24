@@ -1,9 +1,5 @@
-%w[git cmake curl vcredist2013 vcredist140 patch].each do |pkg|
+%w[git cmake cppcheck curl vcredist2013 vcredist140 patch].each do |pkg|
   chocolatey_package pkg
-end
-
-chocolatey_package 'cppcheck' do
-  version '1.90'
 end
 
 windows_env 'PATH' do
