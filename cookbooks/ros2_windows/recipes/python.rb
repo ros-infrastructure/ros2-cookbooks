@@ -2,7 +2,7 @@ python_versions = {
   "dashing" => "3.7.6",
   "eloquent" => "3.7.6",
   "foxy" => "3.8.3",
-  "rolling" => "3.8.3",
+  "rolling" => "3.9.0",
 }.freeze
 
 python_version = python_versions[node["ros2_windows"]["ros_distro"]]
