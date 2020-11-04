@@ -28,6 +28,7 @@ template  'qt-installer.qs' do
     qt_account_email: node['ros2']['qt_account_email'],
     qt_account_password: node['ros2']['qt_account_password'],
   ]
+  sensitive true
 end
 
 template  'qt-maintenance.qs' do
@@ -36,6 +37,7 @@ template  'qt-maintenance.qs' do
     qt_account_email: node['ros2']['qt_account_email'],
     qt_account_password: node['ros2']['qt_account_password'],
   ]
+  sensitive true
 end
 
 # Install Qt5 with automated install script, no msvc2019 version exists but 2017 is compatible
