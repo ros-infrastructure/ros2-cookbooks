@@ -15,12 +15,27 @@ cookbook_file 'qtaccount.ini' do
   sensitive true
 end
 
-cookbook_file 'qt-installer.qs' do
-  source 'qt-installer.qs'
+if node['ros2']['qt_account_email'].nil?
+  raise "A Qt account is required to install Qt.\nSet the `['ros2']['qt_account_email']` attribute"
+end
+if node['ros2']['qt_account_password'].nil?
+  raise "A Qt account is required to install Qt.\nSet the `['ros2']['qt_account_password']` attribute"
 end
 
-cookbook_file 'qt-maintenance.qs' do
-  source 'qt-maintenance.qs'
+template  'qt-installer.qs' do
+  source 'qt-installer.qs.erb'
+  variables Hash[
+    qt_account_email: node['ros2']['qt_account_email'],
+    qt_account_password: node['ros2']['qt_account_password'],
+  ]
+end
+
+template  'qt-maintenance.qs' do
+  source 'qt-maintenance.qs.erb'
+  variables Hash[
+    qt_account_email: node['ros2']['qt_account_email'],
+    qt_account_password: node['ros2']['qt_account_password'],
+  ]
 end
 
 # Install Qt5 with automated install script, no msvc2019 version exists but 2017 is compatible
