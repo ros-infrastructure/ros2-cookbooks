@@ -146,8 +146,8 @@ Controller.prototype.WelcomePageCallback = function WelcomePageCallback() {
 
 Controller.prototype.CredentialsPageCallback = function CredentialsPageCallback() {
   var page = gui.pageWidgetByObjectName('CredentialsPage');
-  page.EmailLineEdit.setText('<%= @qt_account_email %>');
-  page.PasswordLineEdit.setText('<%= @qt_account_password %>');
+  page.loginWidget.EmailLineEdit.setText('<%= @qt_account_email %>');
+  page.loginWidget.PasswordLineEdit.setText('<%= @qt_account_password %>');
   gui.clickButton(buttons.NextButton, 3000);
 };
 
