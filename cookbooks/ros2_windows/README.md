@@ -85,6 +85,10 @@ Adjust the `rti_connext` parameters to match your installation files.
 
 For the most part the Qt installation is fully automated.
 However, downloading Qt binaries requires creating a login.
-If you already have a login and would like this process to complete successfully on a fresh machine, add the file at `${HOME}\AppData\Roaming\Qt\qtaccount.ini` from a previously setup Windows machine to the files directory, before deploying this to a new machine.
+This login email and password can be set by suppling the chef attributes
+```
+node['ros2']['qt_account_email']
+node['ros2']['qt_account_password']
+```
 If you skip this step, the Qt installer will pause and require you to create a login before continuing.
 Importantly, on a headless setup, you will not be able to see this GUI feedback and your installation will pause indefinitely.
