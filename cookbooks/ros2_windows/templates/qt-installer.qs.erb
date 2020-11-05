@@ -145,7 +145,10 @@ Controller.prototype.WelcomePageCallback = function WelcomePageCallback() {
 };
 
 Controller.prototype.CredentialsPageCallback = function CredentialsPageCallback() {
-  gui.clickButton(buttons.CommitButton);
+  var page = gui.pageWidgetByObjectName('CredentialsPage');
+  page.loginWidget.EmailLineEdit.setText('<%= @qt_account_email %>');
+  page.loginWidget.PasswordLineEdit.setText('<%= @qt_account_password %>');
+  gui.clickButton(buttons.NextButton, 3000);
 };
 
 Controller.prototype.ComponentSelectionPageCallback = function ComponentSelectionPageCallback() {
