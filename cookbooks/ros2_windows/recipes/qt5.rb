@@ -2,19 +2,6 @@ directory 'AppData_Qt' do
   path File.join(Dir.home(), "AppData\\Roaming\\Qt")
 end
 
-# Installing Qt5 requires an account. This file contains a username and secret account token
-cookbook_file 'qtaccount.ini' do
-  path File.join(Dir.home(), "AppData\\Roaming\\Qt\\qtaccount.ini")
-  source 'qtaccount.ini'
-  action :create_if_missing
-
-  # If the deploying user did not add this file to `files` continue anyway.
-  ignore_failure true
-
-  # Suppress diff output so we can use this in public builds.
-  sensitive true
-end
-
 if node['ros2']['qt_account_email'].nil?
   raise "A Qt account is required to install Qt.\nSet the `['ros2']['qt_account_email']` attribute"
 end
