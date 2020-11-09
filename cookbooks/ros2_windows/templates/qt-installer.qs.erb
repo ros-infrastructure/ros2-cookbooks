@@ -122,10 +122,13 @@ var GetDirectoryFromVersion = function GetDirectoryFromVersion(version) {
   // are the major version
   var versionString = String(version);
   var length = version.length;
-  if (length < 3 || length > 4) {
-    throw new Error('Assertion failed: (version.length < 3 || version.length > 4)');
+  if (length == 5) {
+    return versionString[0] + '.' + versionString.slice(1, 2) + '.' + versionString.slice(3, 4);
+  } else if (length >= 3 && length <= 4) {
+    return versionString[0] + '.' + versionString.slice(1, length - 1) + '.' + versionString[length - 1];
+  } else {
+    throw new Error('Unable to build directory from version `' + version + '`.');
   }
-  return versionString[0] + '.' + versionString.slice(1, length - 1) + '.' + versionString[length - 1];
 };
 
 
