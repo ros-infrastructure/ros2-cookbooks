@@ -32,6 +32,18 @@ end
 # Install scripts finds and installs the most recent LTS version
 error_filename = File.join(Dir.home(), "qt_install.err")
 
+# Update maintenance tool first, if necessary
+windows_package 'Qt Maintenance Update' do
+  source 'c:\\Qt\\MaintenanceTool.exe'
+  installer_type :custom
+  # I couldn't find documentation, but return codes don't seem to correspond with an actual failure.
+  # Instead error information is written to the ErrorLogname below
+  returns [0]
+  options 'up qt.tools.maintenance'
+  timeout 600
+  only_if {::File.exist?('c:\\Qt\\MaintenanceTool.exe')}
+end
+
 windows_package 'Qt Maintenance' do
   source 'c:\\Qt\\MaintenanceTool.exe'
   installer_type :custom
