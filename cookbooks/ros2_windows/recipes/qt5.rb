@@ -55,7 +55,7 @@ error_filename = File.join(Dir.home(), "qt_install.err")
 #  only_if {::File.exist?('c:\\Qt\\MaintenanceTool.exe')}
 #end
 
-qt_mirror_url = 'http://mirrors.ocf.berkeley.edu/qt'
+qt_mirror_url = 'http://qt.mirror.constant.com'
 windows_package 'Qt Install' do
   source "#{qt_mirror_url}/official_releases/online_installers/qt-unified-windows-x86-online.exe"
   installer_type :custom
