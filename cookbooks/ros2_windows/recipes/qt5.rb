@@ -57,7 +57,7 @@ error_filename = File.join(Dir.home(), "qt_install.err")
 
 qt_mirror_url = 'http://qt.mirror.constant.com'
 windows_package 'Qt Install' do
-  source "#{qt_mirror_url}/official_releases/online_installers/qt-unified-windows-x86-online.exe"
+  source "#{qt_mirror_url}/official_releases/qt/5.12/5.12.10/qt-opensource-windows-x86-5.12.10.exe"
   installer_type :custom
   # I couldn't find documentation, but return codes don't seem to correspond with an actual failure.
   # Instead error information is written to the ErrorLogname below
