@@ -65,7 +65,7 @@ windows_package 'Qt Install' do
   returns [0, 1, 3]
   options %{--st "#{qt_mirror_url}" --script qt-installer.qs --verbose MsvcVersion=2019 ErrorLogname="#{error_filename}"}
   timeout 2000
-  not_if {::File.exist?('c:\\Qt\\MaintenanceTool.exe')}
+  not_if {::File.exist?('c:\\Qt\\Qt5.12.10\\MaintenanceTool.exe')}
 end
 
 ruby_block 'error_exist?' do
