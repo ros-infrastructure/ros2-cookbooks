@@ -62,7 +62,7 @@ windows_package 'Qt Install' do
   # I couldn't find documentation, but return codes don't seem to correspond with an actual failure.
   # Instead error information is written to the ErrorLogname below
   returns [0, 1, 3]
-  options %{--st "#{qt_mirror_url}" --script qt-installer.qs MsvcVersion=2019 ErrorLogname="#{error_filename}"}
+  options %{--st "#{qt_mirror_url}" --script qt-installer.qs --verbose MsvcVersion=2019 ErrorLogname="#{error_filename}"}
   timeout 2000
   not_if {::File.exist?('c:\\Qt\\MaintenanceTool.exe')}
 end
