@@ -13,7 +13,9 @@ packages_to_install =  %w[
   Microsoft.VisualStudio.Component.VC.CoreBuildTools
   Microsoft.VisualStudio.Component.VC.CoreIde
   Microsoft.VisualStudio.Component.VC.Redist.14.Latest
+  Microsoft.VisualStudio.Component.VC.Tools.x86.x64
   Microsoft.VisualStudio.Component.Windows10SDK
+  Microsoft.VisualStudio.Component.Windows10SDK.19041
   Microsoft.VisualStudio.ComponentGroup.NativeDesktop.Core
   Microsoft.VisualStudio.Workload.MSBuildTools
   Microsoft.VisualStudio.Workload.VCTools
