@@ -3,10 +3,20 @@
 
 # If BuildTools is not already installed, install it
 packages_to_install =  %w[
-  Microsoft.Net.Component.4.8.SDK
-  Microsoft.VisualStudio.Workload.VCTools
   Microsoft.Component.MSBuild
+  Microsoft.Net.Component.4.6.1.TargetingPack
+  Microsoft.Net.Component.4.8.SDK
+  Microsoft.VisualStudio.Component.CoreBuildTools
+  Microsoft.VisualStudio.Component.Roslyn.Compiler
+  Microsoft.VisualStudio.Component.TextTemplating
   Microsoft.VisualStudio.Component.VC.CLI.Support
+  Microsoft.VisualStudio.Component.VC.CoreBuildTools
+  Microsoft.VisualStudio.Component.VC.CoreIde
+  Microsoft.VisualStudio.Component.VC.Redist.14.Latest
+  Microsoft.VisualStudio.Component.Windows10SDK
+  Microsoft.VisualStudio.ComponentGroup.NativeDesktop.Core
+  Microsoft.VisualStudio.Workload.MSBuildTools
+  Microsoft.VisualStudio.Workload.VCTools
 ]
 
 if node['ros2_windows']['vs_version'] != 'buildtools' then
