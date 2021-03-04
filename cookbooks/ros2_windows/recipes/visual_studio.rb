@@ -14,7 +14,7 @@ if node['ros2_windows']['vs_version'] != 'buildtools' then
 end
 
 package_arguments = packages_to_install.map{ |pkg| '--add ' + pkg}.join(' ')
-base_options = '--quiet --wait --norestart --includeRecommended '
+base_options = '--quiet --wait --norestart '
 
 installer_options = base_options + package_arguments
 
