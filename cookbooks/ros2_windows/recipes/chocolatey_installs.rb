@@ -1,4 +1,4 @@
-%w[git cmake curl vcredist2013 vcredist140 patch].each do |pkg|
+%w[git cmake curl vcredist2013 vcredist140 patch winflexbison3].each do |pkg|
   chocolatey_package pkg
 end
 
