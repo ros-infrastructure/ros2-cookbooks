@@ -18,6 +18,6 @@ chef_version '>= 12.1' if respond_to?(:chef_version)
 # a Supermarket.
 #
 # source_url 'https://github.com/osrf/chef-osrf'
-depends 'chocolatey'
-depends 'seven_zip'
-depends 'windows'
+depends 'chocolatey', '3.0.0'
+depends 'seven_zip', '3.2.0'
+depends 'windows', '7.0.2'
