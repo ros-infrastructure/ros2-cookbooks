@@ -21,7 +21,7 @@ openssl_conf_dir = if openssl_version == "1_0_2u"
 
 
 windows_package 'openssl' do
-  source "https://slproweb.com/download/Win64OpenSSL-#{openssl_version}.exe"
+  source "https://ftp.osuosl.org/pub/ros/download.ros.org/downloads/openssl/Win64OpenSSL-#{openssl_version}.exe"
   options '/VERYSILENT'
 end
 
