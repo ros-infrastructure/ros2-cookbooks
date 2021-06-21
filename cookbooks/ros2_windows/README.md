@@ -50,7 +50,7 @@ Debug any issues that arise until running chef-solo completes successfully.
 The file `ros2_windows.json` may be modified for your own installation.
 Please check the available attributes in [cookbooks/ros2_windows/attributes](cookbooks/ros2_windows/attributes)
 
-For example, the following will configure the installation to setup the machine for development with connext and opensplice.
+For example, the following will configure the installation to setup the machine for development with connext.
 
 Adjust the `rti_connext` parameters to match your installation files.
 
@@ -62,7 +62,6 @@ Adjust the `rti_connext` parameters to match your installation files.
       "vs_version": "buildtools",
       "ros2_ws": "C:/ci",
       "install_connext": "true",
-      "install_opensplice": "true",
       "rti_connext": {
         "target_platform": "x64Win64",
         "min_vs_version": "2017",

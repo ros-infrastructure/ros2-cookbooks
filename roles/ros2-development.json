@@ -11,8 +11,7 @@
         "ros2.repos": "master"
       },
       "ros2_ws": "C:/dev/ros2_ws",
-      "install_connext": "false",
-      "install_opensplice": "true"
+      "install_connext": "false"
     }
   },
   "chef_type": "role",

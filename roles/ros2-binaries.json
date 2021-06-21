@@ -8,12 +8,11 @@
       "release_version": "eloquent",
       "vs_version": "buildtools",
       "ros2_ws": "C:\\dev\\ros2_eloquent",
-      "install_connext": false,
-      "install_opensplice": false,
+      "install_connext": false
     }
   },
   "chef_type": "role",
   "run_list": [
     "recipe[ros2_windows::ros2]"
-  ],
+  ]
 }
