@@ -1,9 +1,9 @@
 openssl_versions = {
   "dashing" => "1_0_2u",
   "eloquent" => "1_0_2u",
-  "foxy" => "1_1_1k",
-  "galactic" => "1_1_1k",
-  "rolling" => "1_1_1k",
+  "foxy" => "1_1_1L",
+  "galactic" => "1_1_1L",
+  "rolling" => "1_1_1L",
 }.freeze
 
 openssl_version = openssl_versions[node["ros2_windows"]["ros_distro"]]
