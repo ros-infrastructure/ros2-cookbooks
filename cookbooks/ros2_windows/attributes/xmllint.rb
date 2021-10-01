@@ -1,1 +1,1 @@
-default['ros2_windows']['xmllint']['xmllint_download_url'] = 'https://www.zlatkovic.com/pub/libxml/64bit/'
+default['ros2_windows']['xmllint']['xmllint_download_url'] = 'https://ftp.osuosl.org/pub/ros/download.ros.org/downloads/libxml/'
