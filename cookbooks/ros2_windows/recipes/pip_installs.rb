@@ -6,12 +6,12 @@ required_pip_packages = %w[
   catkin_pkg
   cryptography
   EmPy
-  ifcfg
   lark-parser
   lxml
   netifaces
   numpy
   opencv-python
+  psutil
   pyparsing
   pyyaml
   pytest
