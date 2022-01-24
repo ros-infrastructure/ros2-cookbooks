@@ -6,7 +6,6 @@ required_pip_packages = %w[
   catkin_pkg
   cryptography
   EmPy
-  ifcfg
   lark-parser
   lxml
   netifaces
@@ -19,6 +18,15 @@ required_pip_packages = %w[
   coverage
   mock
 ]
+
+ros2doctor_network_dependency = {
+  "foxy" => "ifcfg",
+  "galactic" => "ifcfg",
+  "rolling" => "psutil",
+}.freeze
+
+
+required_pip_packages << ros2doctor_network_dependency[node["ros2_windows"]["ros_distro"]]
 
 development_pip_packages = %w[
   flake8
