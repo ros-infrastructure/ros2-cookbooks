@@ -76,8 +76,9 @@ target_installer_filename = "rti_connext_dds-#{connext_params['version']}-#{conn
 target_installer_path = File.join(connext_params['installer_dir'],
                                   target_installer_filename)
 
-rtipkginstall_bat = File.join(ENV['ProgramFiles'],
-                              "rti_connext_dds-#{connext_params['version']}",
+connextdds_dir = File.join(ENV['ProgramFiles'], "rti_connext_dds-#{connest_params['version']}")
+
+rtipkginstall_bat = File.join(connextdds_dir,
                               'bin',
                               'rtipkginstall.bat')
 
