@@ -76,7 +76,7 @@ target_installer_filename = "rti_connext_dds-#{connext_params['version']}-#{conn
 target_installer_path = File.join(connext_params['installer_dir'],
                                   target_installer_filename)
 
-connextdds_dir = File.join(ENV['ProgramFiles'], "rti_connext_dds-#{connest_params['version']}")
+connextdds_dir = File.join(ENV['ProgramFiles'], "rti_connext_dds-#{connext_params['version']}")
 
 rtipkginstall_bat = File.join(connextdds_dir,
                               'bin',
@@ -146,6 +146,12 @@ end
 
 execute 'rtipkginstall_rti_security_plugins_target' do
   command "\"#{rtipkginstall_bat}\" #{security_plugins_target_path}"
+end
+
+windows_env 'CONNEXTDDS_DIR' do
+  key_name 'CONNEXTDDS_DIR'
+  value connextdds_dir
+  action :create
 end
 
 windows_env 'RTI_OPENSSL_BIN' do
