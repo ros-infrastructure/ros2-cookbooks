@@ -38,10 +38,17 @@ development_pip_packages = %w[
   flake8-docstrings
   flake8-import-order
   flake8-quotes
-  mypy==0.761
   pep8
   pydocstyle
 ]
+
+mypy_version = {
+  "foxy" => "mypy==0.761",
+  "galactic" => "mypy==0.761",
+  "rolling" => "mypy==0.931",
+}.freeze
+
+development_pip_packages << mypy_version[node["ros2_windows"]["ros_distro"]]
 
 # Use explicit location because python may not be on the PATH if chef-solo has not been run before
 #
