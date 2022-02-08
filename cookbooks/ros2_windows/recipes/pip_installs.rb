@@ -5,6 +5,7 @@ required_pip_packages = %w[
   colcon-common-extensions
   catkin_pkg
   cryptography
+  distro
   EmPy
   lark-parser
   lxml
