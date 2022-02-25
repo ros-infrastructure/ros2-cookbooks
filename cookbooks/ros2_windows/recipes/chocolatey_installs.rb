@@ -2,7 +2,7 @@
   chocolatey_package pkg do
     options "--debug"
     list_options "--debug"
-    retries 10
+    retries 20
     retry_delay 10
   end
 end
