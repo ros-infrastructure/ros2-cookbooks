@@ -20,7 +20,7 @@ end
 
 custom_chocolatey_packages = {
   'asio' => 'asio.1.12.1',
-  'bullet' => 'bullet.2.89.0',
+  'bullet' => 'bullet.3.17',
   'cunit' => 'cunit.2.1.3',
   'eigen' => 'eigen.3.3.4',
   'log4cxx' => 'log4cxx.0.10.0',
@@ -30,7 +30,7 @@ custom_chocolatey_packages = {
 
 custom_chocolatey_packages.each do |name, pkg|
   remote_file "#{pkg}.nupkg" do
-    source "https://github.com/ros2/choco-packages/releases/download/2020-02-24/#{pkg}.nupkg"
+    source "https://github.com/ros2/choco-packages/releases/download/2022-03-15/#{pkg}.nupkg"
   end
 
   chocolatey_package 'custom_packages' do
