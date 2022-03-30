@@ -47,7 +47,7 @@ development_pip_packages = %w[
 #
 execute 'pip_update' do
   command lazy {
-    "#{node.run_state[:python_dir]}\\python.exe -m pip install -U pip setuptools"
+    "#{node.run_state[:python_dir]}\\python.exe -m pip install -U pip setuptools==59.6.0"
   }
 end
 
