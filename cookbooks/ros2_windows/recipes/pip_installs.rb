@@ -22,6 +22,7 @@ required_pip_packages = %w[
 ros2doctor_network_dependency = {
   "foxy" => "ifcfg",
   "galactic" => "ifcfg",
+  "humble" => "psutil",
   "rolling" => "psutil",
 }.freeze
 
