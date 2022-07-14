@@ -1,9 +1,9 @@
 # Name of the ros_distro to target with this installation.
 default['ros2_windows']['ros_distro'] = 'rolling'
 
-# github.com/ros2/ros2 branch version, "master", "dashing", "dashing-release", etc.
+# github.com/ros2/ros2 branch version, "rolling", "humble", "humble-release", etc.
 # Only used if downloading sources
-default['ros2_windows']['source']['ros2.repos'] = 'master'
+default['ros2_windows']['source']['ros2.repos'] = 'rolling'
 
 # Location of ros2 workspace
 default['ros2_windows']['ros2_ws'] = 'C:\\dev\\ros2_ws'
