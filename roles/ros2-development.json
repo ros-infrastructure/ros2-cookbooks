@@ -8,7 +8,7 @@
       "download_sources": "true",
       "vs_version": "buildtools",
       "source": {
-        "ros2.repos": "master"
+        "ros2.repos": "rolling"
       },
       "ros2_ws": "C:/dev/ros2_ws",
       "install_connext": "false",
@@ -16,8 +16,8 @@
     }
   },
   "chef_type": "role",
-  "run_list": [ 
-    "recipe[ros2_windows::ros2]", 
-    "recipe[ros2_windows::ros2_sources]" 
+  "run_list": [
+    "recipe[ros2_windows::ros2]",
+    "recipe[ros2_windows::ros2_sources]"
   ]
 }
