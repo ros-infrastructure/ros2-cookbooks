@@ -138,14 +138,20 @@ end
 
 execute 'rtipkginstall_rti_connext_dds_target' do
   command "\"#{rtipkginstall_bat}\" #{target_installer_path}"
+  retries 3
+  retry_delay 10
 end
 
 execute 'rtipkginstall_rti_security_plugins_host' do
   command "\"#{rtipkginstall_bat}\" #{security_plugins_host_path}"
+  retries 3
+  retry_delay 10
 end
 
 execute 'rtipkginstall_rti_security_plugins_target' do
   command "\"#{rtipkginstall_bat}\" #{security_plugins_target_path}"
+  retries 3
+  retry_delay 10
 end
 
 windows_env 'CONNEXTDDS_DIR' do
