@@ -1,10 +1,18 @@
-%w[git cmake curl vcredist2013 vcredist140 patch winflexbison3].each do |pkg|
+%w[git curl vcredist2013 vcredist140 patch winflexbison3].each do |pkg|
   chocolatey_package pkg do
     options "--debug"
     list_options "--debug"
     retries 20
     retry_delay 10
   end
+end
+
+chocolatey_package 'cmake' do
+  version '3.24.3'
+  options "--debug"
+  list_options "--debug"
+  retries 20
+  retry_delay 10
 end
 
 chocolatey_package 'cppcheck' do
