@@ -6,6 +6,7 @@ required_pip_packages = %w[
   catkin_pkg
   cryptography
   EmPy
+  jsonschema
   lark-parser
   lxml
   netifaces
