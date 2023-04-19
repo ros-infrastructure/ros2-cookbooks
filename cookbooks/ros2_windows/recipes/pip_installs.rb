@@ -24,6 +24,7 @@ ros2doctor_network_dependency = {
   "foxy" => "ifcfg",
   "galactic" => "ifcfg",
   "humble" => "psutil",
+  "iron" => "psutil",
   "rolling" => "psutil",
 }.freeze
 
