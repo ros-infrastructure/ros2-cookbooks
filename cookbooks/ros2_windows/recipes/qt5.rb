@@ -71,7 +71,7 @@ elsif node['ros2_windows']['qt5']['installation_method'] == 'offline'
   error_filename = File.join(Dir.home(), "qt_install.err")
   windows_package 'Qt Install' do
     # Qt 5.12 was the last version of Qt to be provided an offline installer for open source usage.
-    source "#{qt_mirror_url}/archive/qt/5.12/5.12.10/qt-opensource-windows-x86-5.12.10.exe"
+    source "#{qt_mirror_url}/new_archive/qt/5.12/5.12.10/qt-opensource-windows-x86-5.12.10.exe"
     checksum "e315ec89000ae08d51c248f251ce670036b565e1d3a07df50e32557b8fd8246e"
     installer_type :custom
     # I couldn't find documentation, but return codes don't seem to correspond with an actual failure.
