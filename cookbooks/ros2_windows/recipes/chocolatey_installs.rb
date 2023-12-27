@@ -32,9 +32,16 @@ custom_chocolatey_packages = {
   'cunit' => 'cunit.2.1.3',
   'eigen' => 'eigen.3.3.4',
   'log4cxx' => 'log4cxx.0.10.0',
-  'tinyxml-usestl' => 'tinyxml-usestl.2.6.2',
   'tinyxml2' => 'tinyxml2.6.0.0'
 }
+
+chocolatey_tinyxml_dependency = {
+  "humble" => {"tinyxml" => "tinyxml-usestl.2.6.2"},
+  "iron" => {"tinyxml" => "tinyxml-usestl.2.6.2"},
+  "rolling" => {},
+}.freeze
+
+custom_chocolatey_packages.merge!(chocolatey_tinyxml_dependency[node["ros2_windows"]["ros_distro"]])
 
 custom_chocolatey_packages.each do |name, pkg|
   remote_file "#{pkg}.nupkg" do
