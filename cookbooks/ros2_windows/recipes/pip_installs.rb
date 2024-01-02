@@ -1,5 +1,5 @@
 required_pip_packages = %w[
-  pydot
+  pydot==1.4.2
   PyQt5==5.15.0
   vcstool
   colcon-common-extensions
