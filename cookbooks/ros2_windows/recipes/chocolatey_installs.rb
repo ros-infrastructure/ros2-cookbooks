@@ -31,7 +31,6 @@ custom_chocolatey_packages = {
   'bullet' => 'bullet.3.17',
   'cunit' => 'cunit.2.1.3',
   'eigen' => 'eigen.3.3.4',
-  'log4cxx' => 'log4cxx.0.10.0',
   'tinyxml2' => 'tinyxml2.6.0.0'
 }
 
