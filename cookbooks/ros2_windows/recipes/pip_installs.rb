@@ -1,6 +1,7 @@
 required_pip_packages = %w[
   pydot==1.4.2
   PyQt5==5.15.0
+  argcomplete==1.8.1
   vcstool
   colcon-common-extensions
   catkin_pkg
