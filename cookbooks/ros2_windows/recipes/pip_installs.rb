@@ -10,7 +10,6 @@ required_pip_packages = %w[
   jsonschema
   lark-parser
   lxml
-  netifaces
   numpy
   opencv-python
   pyparsing
@@ -22,15 +21,20 @@ required_pip_packages = %w[
 ]
 
 ros2doctor_network_dependency = {
-  "foxy" => "ifcfg",
-  "galactic" => "ifcfg",
   "humble" => "psutil",
   "iron" => "psutil",
   "rolling" => "psutil",
 }.freeze
 
-
 required_pip_packages << ros2doctor_network_dependency[node["ros2_windows"]["ros_distro"]]
+
+ros2cli_network_dependency = {
+  "humble" => "netifaces",
+  "iron" => "netifaces",
+  "rolling" => "psutil",
+}.freeze
+
+required_pip_packages << ros2cli_network_dependency[node["ros2_windows"]["ros_distro"]]
 
 development_pip_packages = %w[
   flake8
