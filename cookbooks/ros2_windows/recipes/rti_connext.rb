@@ -16,8 +16,6 @@ end
 
 connext_params = node['ros2_windows']['rti_connext']
 
-include_recipe 'seven_zip'
-
 output="#{Chef::JSONCompat.to_json_pretty(node.to_hash)}"
 
 # These will fail if the rti_connext parameters have not been specified because the defaults are 'nil'
@@ -116,10 +114,15 @@ powershell_script 'copy_license_file' do
   code "copy #{connext_params['license_file']} C:/connext/"
 end
 
-seven_zip_archive 'openssl_zip' do
-  path 'C:/connext/'
+remote_file 'C:\\openssl.zip' do
   source openssl_installer_zip
+end
+
+archive_file 'openssl_zip' do
+  destination 'C:/connext/'
+  path 'C:\\openssl.zip'
   overwrite false
+  action :extract
 end
 
 windows_env 'RTI_LICENSE_FILE' do
