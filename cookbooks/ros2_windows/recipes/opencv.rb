@@ -4,7 +4,7 @@ end
 
 archive_file 'open_cv_zip' do
   destination 'C:\\'
-  path 'C:\opencv-3.4.6-vc16.VS2019.zip'
+  path 'C:\\opencv-3.4.6-vc16.VS2019.zip'
   overwrite true
   action :extract
 end

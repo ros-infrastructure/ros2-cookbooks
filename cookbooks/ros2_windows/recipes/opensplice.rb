@@ -3,7 +3,7 @@ remote_file 'C:\\PXXX-VortexOpenSplice-6.9.190925OSS-HDE-x86_64.win-vs2019-insta
 end
 
 archive_file 'opensplice' do
-  destination 'C:\opensplice'
+  destination 'C:\\opensplice'
   source 'C:\\PXXX-VortexOpenSplice-6.9.190925OSS-HDE-x86_64.win-vs2019-installer.zip'
   overwrite true
   action :extract
