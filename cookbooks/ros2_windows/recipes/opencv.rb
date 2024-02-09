@@ -1,7 +1,12 @@
-seven_zip_archive 'open_cv_zip' do
-  path 'C:\\'
+remote_file 'C:\\opencv-3.4.6-vc16.VS2019.zip' do
   source 'https://github.com/ros2/ros2/releases/download/opencv-archives/opencv-3.4.6-vc16.VS2019.zip'
+end
+
+archive_file 'open_cv_zip' do
+  destination 'C:\\'
+  path 'C:\\opencv-3.4.6-vc16.VS2019.zip'
   overwrite true
+  action :extract
 end
 
 windows_env 'OpenCV_DIR' do
