@@ -12,7 +12,6 @@
       },
       "ros2_ws": "C:/dev/ros2_ws",
       "install_connext": "false",
-      "install_opensplice": "true"
     }
   },
   "chef_type": "role",

@@ -9,7 +9,6 @@
       "vs_version": "buildtools",
       "ros2_ws": "C:\\dev\\ros2_eloquent",
       "install_connext": false,
-      "install_opensplice": false,
     }
   },
   "chef_type": "role",
