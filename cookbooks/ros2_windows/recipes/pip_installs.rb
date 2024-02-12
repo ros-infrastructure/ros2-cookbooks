@@ -46,7 +46,7 @@ development_pip_packages = %w[
   flake8-docstrings
   flake8-import-order
   flake8-quotes
-  mypy==0.761
+  mypy==0.942
   pep8
   pydocstyle
 ]
