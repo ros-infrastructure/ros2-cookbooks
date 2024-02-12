@@ -1,8 +1,4 @@
 python_versions = {
-  "dashing" => "3.7.6",
-  "eloquent" => "3.7.6",
-  "foxy" => "3.8.3",
-  "galactic" => "3.8.3",
   "humble" => "3.8.3",
   "iron" => "3.8.3",
   "rolling" => "3.8.3",
